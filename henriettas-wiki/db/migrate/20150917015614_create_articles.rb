@@ -1,0 +1,13 @@
+class CreateArticles < ActiveRecord::Migration
+  def change
+    create_table :articles do |t|
+      t.string :title
+      t.text :content
+      t.timestamp :updated_at
+      t.references :employee, index: true, foreign_key: true
+      t.references :category, index: true, foreign_key: true
+
+      t.timestamps null: false
+    end
+  end
+end
