@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Articles</h1>
+<h1>Articles</h1>
 
 <table>
   <thead>
@@ -20,8 +20,8 @@
         <td><%= article.title %></td>
         <td><%= article.content %></td>
         <td><%= article.updated_at %></td>
-        <td><%= article.employee %></td>
-        <td><%= article.category %></td>
+        <td><%= article.employee.name %></td>
+        <td><%= article.category.name %></td>
         <td><%= link_to 'Show', article %></td>
         <td><%= link_to 'Edit', edit_article_path(article) %></td>
         <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -32,4 +32,5 @@
 
 <br>
 
-<%= link_to 'New Article', new_article_path %>
+<%= link_to 'Add New Article', new_article_path %> |
+<%= link_to 'Home', categories_path%>

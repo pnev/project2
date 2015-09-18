@@ -1,5 +1,35 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, only: [:edit, :new, :update, :destroy]
+
+
+  def login
+    if current_employee
+      redirect_to article_path
+    else
+      render :login
+    end
+  end
+
+  def logout
+    session[:employee_id]=nil
+    redirect_to '/login'
+  end
+
+  # DOES AN ACTUAL LOGIN
+  def login_post
+    @employee = Employee.find_by({email: params[:email]})
+    if @employee
+      if @employee.authenticate(params[:password])
+        session[:employee_id] = @employee.id
+        redirect_to articles_path
+      else
+        redirect_to '/login'
+      end
+    else
+      redirect_to '/login'
+    end
+  end
 
   # GET /employees
   # GET /employees.json
@@ -62,6 +92,9 @@ class EmployeesController < ApplicationController
   end
 
   private
+    def require_login
+    redirect_to '/login' unless current_employee
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_employee
       @employee = Employee.find(params[:id])
@@ -69,6 +102,6 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:name, :email, :phone_number)
+      params.require(:employee).permit(:name, :email, :phone_number, :password)
     end
 end

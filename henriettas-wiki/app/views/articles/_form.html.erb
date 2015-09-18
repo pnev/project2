@@ -25,13 +25,13 @@
   </div>
   <div class="field">
     <%= f.label :employee_id %><br>
-    <%= f.text_field :employee_id %>
+    <%=f.collection_select :employee_id, Employee.all, :id, :name, {prompt:"Please select the author"}%>
   </div>
   <div class="field">
     <%= f.label :category_id %><br>
-    <%= f.text_field :category_id %>
+    <%=f.collection_select :category_id, Category.all, :id, :name, {prompt:"Please select a category"}%>
   </div>
-  <div class="actions">
+<div class="actions">
     <%= f.submit %>
   </div>
 <% end %>

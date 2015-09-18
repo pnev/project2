@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
+
+  root 'categories#index'
+
   resources :articles
   resources :categories
   resources :employees
+
+  get '/login' => 'employees#login'
+  post '/login' => 'employees#login_post'
+  get '/logout' => 'employees#logout'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, except: [:index, :show]
 
   # GET /categories
   # GET /categories.json
@@ -62,6 +63,10 @@ class CategoriesController < ApplicationController
   end
 
   private
+
+  def require_login
+    redirect_to '/login' unless current_employee
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_category
       @category = Category.find(params[:id])
