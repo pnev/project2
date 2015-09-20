@@ -1,11 +1,11 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
   before_action :require_login, only: [:edit, :new, :update, :destroy]
-
+  layout false, only: [:login]
 
   def login
     if current_employee
-      redirect_to article_path
+      redirect_to categories_path
     else
       render :login
     end
@@ -13,7 +13,7 @@ class EmployeesController < ApplicationController
 
   def logout
     session[:employee_id]=nil
-    redirect_to '/login'
+    redirect_to categories_path
   end
 
   # DOES AN ACTUAL LOGIN
@@ -22,7 +22,7 @@ class EmployeesController < ApplicationController
     if @employee
       if @employee.authenticate(params[:password])
         session[:employee_id] = @employee.id
-        redirect_to articles_path
+        redirect_to categories_path
       else
         redirect_to '/login'
       end
@@ -104,4 +104,4 @@ class EmployeesController < ApplicationController
     def employee_params
       params.require(:employee).permit(:name, :email, :phone_number, :password)
     end
-end
+  end

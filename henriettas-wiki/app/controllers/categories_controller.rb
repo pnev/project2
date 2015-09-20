@@ -64,9 +64,9 @@ class CategoriesController < ApplicationController
 
   private
 
-  def require_login
-    redirect_to '/login' unless current_employee
-  end
+    def require_login
+      redirect_to '/login' unless current_employee
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_category
       @category = Category.find(params[:id])
@@ -76,4 +76,4 @@ class CategoriesController < ApplicationController
     def category_params
       params.require(:category).permit(:name)
     end
-end
+  end

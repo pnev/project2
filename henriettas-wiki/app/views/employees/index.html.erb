@@ -1,32 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Employees</h1>
+
+<h1>Authors</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Phone number</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+
 
   <tbody>
     <% @employees.each do |employee| %>
-      <tr>
-        <td><%= employee.name %></td>
-        <td><%= employee.email %></td>
-        <td><%= employee.phone_number %></td>
-        <td><%= link_to 'Show', employee %></td>
-        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <tr class = "main_list">
+        <td><a href= "employees/<%=employee.id%>"<%=link_to employee.name %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Employee', new_employee_path %> |
-<%= link_to 'Home', categories_path%>

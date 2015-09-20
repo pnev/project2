@@ -1,9 +1,13 @@
-<h1>Login</h1>
+<p id="notice"><%= notice %></p>
+<body>
+<p>Please enter your employee email and password before continuing.</p>
+<h1 style= "font-family:Droid Sans, sans-serif">Login</h1>
 <form action="/login" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="text" name="email" placeholder="Email address">
   <input type="password" name="password" placeholder="Password">
   <input type="submit">
 </form>
+</body>
 <br></br>
 <%= link_to 'Home', categories_path%>

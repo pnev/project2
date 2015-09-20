@@ -1,12 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<div class = "show">
+<p class = "title">
   <%= @article.title %>
 </p>
 
 <p>
-  <strong>Content:</strong>
   <%= markdown @article.content %>
 </p>
 
@@ -18,6 +17,9 @@
 <p>
   <strong>Author:</strong>
   <%= @article.employee.name %>
+</p>
+<p>
+  <strong>Contact Info:</strong>
   <%= @article.employee.email %>
   <%= @article.employee.phone_number %>
 </p>
@@ -29,4 +31,5 @@
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %> |
-<%= link_to 'Home', categories_path%>
+<%= link_to 'Delete Article', @article, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>

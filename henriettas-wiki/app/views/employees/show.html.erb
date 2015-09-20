@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+
 <p>
+
   <strong>Name:</strong>
   <%= @employee.name %>
 </p>
@@ -19,4 +21,4 @@
 
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Back', employees_path %> |
-<%= link_to 'Home', categories_path%>
+<%= link_to 'Delete Employee', @employee, method: :delete, data: { confirm: 'Are you sure?' } %>

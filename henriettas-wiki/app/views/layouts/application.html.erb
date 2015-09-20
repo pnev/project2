@@ -5,19 +5,33 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
-
-  <% if current_employee %>
-    You are logged in as <%= current_employee.name %>
-    <%=link_to 'Logout', '/logout' %>
-  <% else %>
-    <%=link_to 'Log In', '/login' %>
-  <% end %>
-
-
+<header class="navbar navbar-fixed-top navbar-inverse">
+<div class="container">
+  <nav>
+    <ul class="nav navbar-nav navbar-left">
+      <li><%= link_to 'View All Articles', articles_path %></li>
+      <li><%= link_to 'View All Authors', employees_path %></li>
+      <li><%= link_to 'Add Category', new_category_path %></li>
+      <li><%= link_to 'Add Article', new_article_path %></li>
+      <li><%= link_to 'Add Employee', new_employee_path %></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to 'Home', categories_path%> </li>
+      <% if current_employee %>
+        <li><%=link_to 'Log Out', '/logout'%></li>
+      <% else %>
+      <li><%= link_to 'Login', '/login' %></li>
+      <% end %>
+    </u1>
+</nav>
+</div>
+</header>
 <%= yield %>
-
-
+<div>
+  <p class = "footer">Copyright 2015 Henrietta's Inc.</p>
+</div>
 </body>
 </html>

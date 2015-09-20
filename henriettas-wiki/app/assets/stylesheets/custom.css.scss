@@ -1,0 +1,92 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* universal */
+
+body {
+  padding-top: 60px;
+  margin-left: 10px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 5em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+h2 {
+  font-size: 3.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: left;
+  font-weight: normal;
+  color: black;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+.navbar-nav, .navbar-inverse {
+  background-color: blue;
+}
+
+li {
+  list-style: none;
+}
+
+header {
+  margin-left: 0px;
+}
+.navbar .nav > li > a {
+   padding: 10px 15px 10px;
+   color: white;
+   font-size: 1.25em;
+}
+
+.actions {
+  padding: 10px 5px 10px 0px;
+}
+
+#content text_area {
+  width: 100px;
+}
+
+.field {
+  padding: 10px 5px 10px 0px;
+}
+
+.welcome {
+  text-align: center;
+}
+
+td {
+  font-size: 1.5em;
+}
+
+.title {
+  font-weight:bold;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}

@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :require_login, except: [:index, :show]
+  before_action :require_authorization, only: [:destroy]
 
   # GET /articles
   # GET /articles.json
@@ -26,7 +27,6 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
@@ -55,14 +55,20 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
+    @article = current_employee.articles.find(params[:id])
     @article.destroy
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
+      format.html { redirect_to articles_url, notice: 'Article was successfully deleted.' }
       format.json { head :no_content }
     end
+
   end
 
   private
+
+    def require_authorization
+      redirect_to articles_path, notice: 'You are not authorized to delete this article.' unless current_employee.articles.find_by_employee_id(params[:id])
+    end
 
     def require_login
       redirect_to '/login' unless current_employee
