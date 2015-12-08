@@ -1,24 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-
-<p>
-
-  <strong>Name:</strong>
-  <%= @employee.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @employee.email %>
-</p>
-
-<% if @employee.phone_number.present? %>
+<div>
   <p>
-    <strong>Phone number:</strong>
-    <%= @employee.phone_number %>
+    <strong>Name:</strong>
+    <%= @employee.name %>
   </p>
+  <p>
+    <strong>Email:</strong>
+    <%= @employee.email %>
+  </p>
+    <%if @employee.phone_number.present? %>
+    <p>
+      <strong>Phone number:</strong>
+      <%= @employee.phone_number %>
+    </p>
 <% end %>
-
+</div>
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Back', employees_path %> |
 <%= link_to 'Delete Employee', @employee, method: :delete, data: { confirm: 'Are you sure?' } %>

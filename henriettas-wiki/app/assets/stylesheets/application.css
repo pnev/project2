@@ -13,9 +13,4 @@
  *= require_tree .
  *= require_self
  */
- @import url(https://fonts.googleapis.com/css?family=Droid Sans:400,300,700);
-
- body {
-  font-family: 'Droid Sans', sans-serif;
-  font-weight: 250;
- }
+ 

@@ -1,11 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-/* universal */
+@import "https://fonts.googleapis.com/css?family=Droid Sans:400,300,700)";
 
 body {
   padding-top: 60px;
   margin-left: 10px;
+  font-family: 'Droid Sans', sans-serif;
+  font-weight: 250;
 }
 
 section {
@@ -15,8 +16,6 @@ section {
 textarea {
   resize: vertical;
 }
-
-/* typography */
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -54,6 +53,7 @@ li {
 header {
   margin-left: 0px;
 }
+
 .navbar .nav > li > a {
    padding: 10px 15px 10px;
    color: white;
@@ -62,10 +62,6 @@ header {
 
 .actions {
   padding: 10px 5px 10px 0px;
-}
-
-#content text_area {
-  width: 100px;
 }
 
 .field {

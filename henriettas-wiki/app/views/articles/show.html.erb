@@ -1,33 +1,33 @@
 <p id="notice"><%= notice %></p>
 
 <div class = "show">
-<p class = "title">
-  <%= @article.title %>
-</p>
+  <p class = "title">
+    <%= @article.title %>
+  </p>
 
-<p>
-  <%= markdown @article.content %>
-</p>
+  <p>
+    <%= markdown @article.content %>
+  </p>
 
-<p>
-  <strong>Updated at:</strong>
-  <%= @article.updated_at %>
-</p>
+  <p>
+    <strong>Updated at:</strong>
+    <%= @article.updated_at %>
+  </p>
 
-<p>
-  <strong>Author:</strong>
-  <%= @article.employee.name %>
-</p>
-<p>
-  <strong>Contact Info:</strong>
-  <%= @article.employee.email %>
-  <%= @article.employee.phone_number %>
-</p>
+  <p>
+    <strong>Author:</strong>
+    <%= @article.employee.name %>
+  </p>
+  <p>
+    <strong>Contact Info:</strong>
+    <%= @article.employee.email %>
+    <%= @article.employee.phone_number %>
+  </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @article.category.name %>
-</p>
+  <p>
+    <strong>Category:</strong>
+    <%= @article.category.name %>
+  </p>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %> |
